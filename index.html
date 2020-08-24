@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			display:grid;
+			place-items:center;
+			height: 100vh;
+			background: linear-gradient(to right , red , orange);
+			background-size: cover;
+			background-repeat: no-repeat;
+			font-family: monospace;
+			font-size: 150%;
+			transition: 0.4s;
+		}
+		.half-circle {
+			display: grid;
+			place-items:center;
+    width: 600px;
+    height: 100px; /* as the half of the width */
+    border-bottom-left-radius: 100px;  /* 100px of height + 10px of border */
+    border-bottom-right-radius: 110px; /* 100px of height + 10px of border */
+    border: 10px solid black;
+    border-bottom: 0;
+}
+	</style>
+</head>
+<body id="body">
+<h2>DROCKSS BACKGROUND GENERATOR</h2>
+<div class="half-circle"><h3>Choose Color 1 and Color 2</h3></div>
+
+<div>
+<input class="color1" type="color" value="#00ff00" name="color1">
+<input class="color2" type="color" value="#ff0000" name="color2"></div>
+
+<script type="text/javascript">
+	var css = document.querySelector(".half-circle")
+	var a = document.querySelector(".color1")
+	var b = document.querySelector(".color2")
+	var body = document.getElementById("body")
+	console.log(body);
+	body.style.background = "linear-gradient(to right , red , blue);";
+	function dothis(){
+		body.style.background = "linear-gradient(to right , " + a.value +",  " + b.value + ")";
+		css.textContent = "linear-gradient(to right , " + a.value +",  " + b.value + ")";
+		// "color 1: "+a.value+" color 2: "+b.value;
+	}
+	a.addEventListener("input" , dothis)
+	b.addEventListener("input" , dothis)
+
+</script>
+</body>
+</html>
